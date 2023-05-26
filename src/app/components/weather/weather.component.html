@@ -1,13 +1,28 @@
 <div>
-    <h2 class="text" >Weather Conditions</h2>
+    <h2 class="text" >Current Conditions</h2>
+    
 </div>
 
-<div  *ngIf="localWeather" >
-    <h3 class="text">City: {{ localWeather.location.name }}</h3>
-    <h3 class="text">Region: {{ localWeather.location.region }}</h3>
-    <h3 class="text">Country: {{ localWeather.location.country }}</h3>
-    <h3 class="text">Temperature: {{ localWeather.current.temp_c }}</h3>
-    <h3 class="text">Gusts: {{ localWeather.current.gust_kph }} km/h</h3>
-    <h3 class="text">Wind: {{ localWeather.current.wind_kph }} km/h {{ localWeather.current.wind_dir }}</h3>
-    
+<div class="weather-box" *ngIf="localWeather" >
+    <div class="primary">
+        <div><span class="location">{{ localWeather.location.name }}, {{ localWeather.location.region }} </span></div>
+        <div><span class="temp">{{ localWeather.current.temp_c }} °C</span></div>
+    </div>
+    <div class="secondary">
+        <div>
+            <span>Wind</span>
+            <div class="secondary-unit-text" >
+                <span class="wind">{{ localWeather.current.wind_kph }}</span>
+                <span class="details">km/h<br>{{ localWeather.current.wind_dir }}</span>
+            </div>
+        </div>
+        <div>
+            <span>Gusts</span>
+            <div class="secondary-unit-text">
+                <span class="wind">{{ localWeather.current.gust_kph }} </span>
+                <span class="details" >km/h</span>
+            </div>
+        </div>
+        
+    </div>
 </div>

@@ -2,8 +2,3 @@
     display: flex;
     justify-content: center;
 }
-
-.title{
-    flex:1;
-    padding: 1rem;
-}

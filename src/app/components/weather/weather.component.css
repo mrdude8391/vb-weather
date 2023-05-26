@@ -1,3 +1,31 @@
-.text{
-    padding: 1rem;
+.weather-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.location{
+    font-size: 24px;
+}
+
+.temp{
+    font-size: 42px;
+}
+
+.wind{
+    font-size: 32px;
+}
+
+.details{
+    font-size: 12px;
+}
+
+.secondary{
+    display: flex;
+    gap: 1rem;
+}
+
+.secondary-unit-text{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
