@@ -9,11 +9,13 @@ import { Component } from '@angular/core';
 })
 export class WeatherComponent {
   //Properties
-  weather : Weather = new Weather();
-
-  posts: WeatherML | undefined;
+  localWeather: WeatherML | undefined;
   //Constructor
   constructor(private weatherService: WeatherService) {}
+
+  ngOnInit(): void {
+    this.getLocalWeather();
+  }
 
   //Methods
   getWeather() {
@@ -24,13 +26,13 @@ export class WeatherComponent {
     });
   }
 
-  getPosts() {
+  getLocalWeather() {
     this.weatherService.getPosts()
     .subscribe(
       {
         next: (val: WeatherML) => {
-          this.posts = { ...val};
-          console.log("posts" , this.posts);
+          this.localWeather = { ...val};
+          console.log("posts" , this.localWeather);
           },
         error: error => console.log(error),
       });

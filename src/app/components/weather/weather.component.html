@@ -1,14 +1,13 @@
-<h2>Weather Conditions</h2>
-<div><span>id: </span>{{weather.id}}</div>
-<div><span>conditions: </span>{{weather.condition}}</div>\
-<button (click)="getPosts()"> get posts </button>
+<div>
+    <h2 class="text" >Weather Conditions</h2>
+</div>
 
-<div *ngIf="posts">
-    <h2>City: {{ posts.location.name }}</h2>
-    <h2>Region: {{ posts.location.region }}</h2>
-    <h2>Country: {{ posts.location.country }}</h2>
-    <h2>Temperature: {{ posts.current.temp_c }}</h2>
-    <h2>Gusts: {{ posts.current.gust_kph }} km/h</h2>
-    <h2>Wind: {{ posts.current.wind_kph }} km/h {{ posts.current.wind_dir }}</h2>
+<div  *ngIf="localWeather" >
+    <h3 class="text">City: {{ localWeather.location.name }}</h3>
+    <h3 class="text">Region: {{ localWeather.location.region }}</h3>
+    <h3 class="text">Country: {{ localWeather.location.country }}</h3>
+    <h3 class="text">Temperature: {{ localWeather.current.temp_c }}</h3>
+    <h3 class="text">Gusts: {{ localWeather.current.gust_kph }} km/h</h3>
+    <h3 class="text">Wind: {{ localWeather.current.wind_kph }} km/h {{ localWeather.current.wind_dir }}</h3>
     
 </div>
