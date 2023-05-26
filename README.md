@@ -4,8 +4,8 @@ This project is a basic Angular project that uses WeatherApi to get local weathe
 
 # Roadmap
 
-[x] Get API calls
-[] Learn CSS to create basic UI structure
-[] Get Forecast weather
-[] Get API calls by search
-[] 
+[x] Get API calls\
+[] Learn CSS to create basic UI structure\
+[] Get Forecast weather\
+[] Get API calls by search\
+[] \
