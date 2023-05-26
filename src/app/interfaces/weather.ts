@@ -14,5 +14,9 @@ export interface WeatherML {
         gust_kph: number,
         wind_kph: number,
         wind_dir: string,
+        condition: {
+            text: string,
+            icon: string,
+        },
     }
 }

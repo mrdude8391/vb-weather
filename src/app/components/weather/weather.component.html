@@ -5,8 +5,15 @@
 
 <div class="weather-box" *ngIf="localWeather" >
     <div class="primary">
-        <div><span class="location">{{ localWeather.location.name }}, {{ localWeather.location.region }} </span></div>
-        <div><span class="temp">{{ localWeather.current.temp_c }} °C</span></div>
+        <div>
+            <span class="location">{{ localWeather.location.name }}, {{ localWeather.location.region }} </span>
+        </div>
+        <div>
+            <span class="temp">{{ localWeather.current.temp_c }}  </span>
+           
+            <div class="degrees">°C</div>
+            <img class="symbol" [src]="localWeather.current.condition.icon" alt="current condition">
+        </div>
     </div>
     <div class="secondary">
         <div>
