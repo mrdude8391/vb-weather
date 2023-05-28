@@ -1,3 +1,12 @@
+.container{
+    font-family: Roboto, sans-serif;
+    
+}
+.heading{
+    font-size: 32px;
+    margin-bottom: 10px;
+    
+}
 .weather-box{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -6,38 +15,43 @@
 
 .location{
     font-size: 24px;
+    
 }
 
-.temp{
+
+
+.weather-info{
+    display: flex;
+}
+.weather-info .temp{
     font-size: 52px;
-
+    color: #e8bf25;
 }
-.degrees{
-    font-sizse:42;
+.weather-info .degrees{
+    font-size: 20px;
     vertical-align: top;
-    display: inline-block;
     margin-top: 10px;
 }
 
-.wind{
-    font-size: 32px;
+.weather-info .symbol{
+    vertical-align: bottom;
 }
 
-.symbol{
-    display: inline;
-    vertical-align: bottom;
+.secondary-info{
+    display: flex;
+    gap: 1rem;
+}
+.wind{
+    font-size: 32px;
 }
 
 .details{
     font-size: 12px;
 }
 
-.secondary{
-    display: flex;
-    gap: 1rem;
-}
 
-.secondary-unit-text{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+.text-stack{
+    display: flex;
+    align-items: center;
 }
