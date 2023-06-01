@@ -8,4 +8,4 @@ This project is a basic Angular project that uses WeatherApi to get local weathe
 [x] Learn CSS to create basic UI structure\
 [] Get Forecast weather\
 [] Get API calls by search\
-[] 
+[] Add Chart.js\
