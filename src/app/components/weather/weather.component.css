@@ -18,10 +18,14 @@
     
 }
 
-
+.primary-info{
+    display: flex;
+    flex-direction: column;
+}
 
 .weather-info{
     display: flex;
+    
 }
 .weather-info .temp{
     font-size: 52px;
