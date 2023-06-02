@@ -1,17 +1,20 @@
 <div class="container">
-    <div class="heading">
-        <p>Current Conditions</p>
+    <div class="location" *ngIf="localWeather">
+        <form #locationForm="ngForm" (ngSubmit)="getLocation(locationForm.value)">
+            <input name="location" type="text" placeholder="Enter Location" ngModel >
+            <button type="submit">Search</button>
+        </form>
+        <p>{{ localWeather.location.name }}, {{ localWeather.location.region }} </p>
     </div>
-    
+    <div class="heading">
+        <span >Current Conditions</span>
+    </div>
     <div class="weather-box" *ngIf="localWeather" >
         <div class="primary-info">
-            <div class="location">
-                <span >{{ localWeather.location.name }}, {{ localWeather.location.region }} </span>
-            </div>
             <div class="weather-info">
+                <img class="symbol" [src]="localWeather.current.condition.icon" alt="current condition">
                 <p class="temp">{{ localWeather.current.temp_c }}</p>
                 <p class="degrees">°C</p>
-                <img class="symbol" [src]="localWeather.current.condition.icon" alt="current condition">
             </div>
             <div>
                 <p>{{ localWeather.current.condition.text }}</p>

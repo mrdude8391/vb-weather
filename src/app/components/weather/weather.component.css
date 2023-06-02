@@ -2,18 +2,19 @@
     font-family: Roboto, sans-serif;
     
 }
-.heading{
+.location{
     font-size: 32px;
     margin-bottom: 10px;
     
 }
 .weather-box{
     display: grid;
+    margin-top: 1rem;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
-.location{
+.heading{
     font-size: 24px;
     
 }
