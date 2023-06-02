@@ -1,7 +1,8 @@
 <div class="container">
     <div class="location" *ngIf="localWeather">
-        <form #locationForm="ngForm" (ngSubmit)="getLocation(locationForm.value)">
-            <input name="location" type="text" placeholder="Enter Location" ngModel >
+        <form #locationForm="ngForm" (ngSubmit)="getLocation(locationForm)">
+            <input #locationModel="ngModel" name="location" required  type="text" placeholder="Enter Location" ngModel >
+            <div *ngIf="locationModel.touched && locationModel.invalid" class="invalid" >Invalid Location</div>
             <button type="submit">Search</button>
         </form>
         <p>{{ localWeather.location.name }}, {{ localWeather.location.region }} </p>

@@ -30,10 +30,10 @@ export class WeatherComponent {
 
   getLocation(locationForm: any){
     console.log("Form Submitted", locationForm);
-    this.location = locationForm.location;
+    this.location = locationForm.value.location;
     this.getLocalWeather(this.location);
   }
-  
+
   getLocalWeather(location: string) {
     this.weatherService.getPosts(location)
     .subscribe(
