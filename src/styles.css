@@ -16,4 +16,9 @@ body{
 .main{
 display: flex;
 justify-content: center;
+
+}
+
+.root{
+  width: 650px;
 }

@@ -68,3 +68,10 @@ export interface WeatherML {
         forecastday: ForecastDay[]
     }
 }
+
+export interface WeatherError{
+    error: {
+        code: number,
+        message: string, 
+    }
+}

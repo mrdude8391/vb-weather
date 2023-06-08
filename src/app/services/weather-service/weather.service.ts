@@ -23,7 +23,7 @@ export class WeatherService {
   getPosts(location: string) {
     // /forecast.json?key=a69c3d3f037c4005a60214157231805&q=Toronto&days=1&aqi=no&alerts=no
     let url = this.ROOT_URL + '/forecast.json?key=' + this.KEY + '&q=' + location + '&days=1&aqi=no&alerts=no';
-    console.log(url)
+    console.log(url);
     return this.http.get<WeatherML>(url);
   }
 }

@@ -1,5 +1,5 @@
 import { WeatherService } from './../../services/weather-service/weather.service';
-import { Weather, WeatherML } from 'src/app/interfaces/weather';
+import { Weather, WeatherError, WeatherML } from 'src/app/interfaces/weather';
 import { Component } from '@angular/core';
 
 
@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 export class WeatherComponent {
   //Properties
   localWeather: WeatherML | undefined;
+  errorMessage = "";
   location = "Toronto";
   //Constructor
   constructor(private weatherService: WeatherService) {}
@@ -29,8 +30,9 @@ export class WeatherComponent {
   }
 
   getLocation(locationForm: any){
-    console.log("Form Submitted", locationForm);
     this.location = locationForm.value.location;
+    if(this.location === ""){ return;}
+    console.log("Form Submitted", locationForm);
     this.getLocalWeather(this.location);
   }
 
@@ -39,10 +41,24 @@ export class WeatherComponent {
     .subscribe(
       {
         next: (val: WeatherML) => {
+          this.errorMessage = "";
           this.localWeather = { ...val};
           console.log("posts" , this.localWeather);
           },
-        error: error => console.log(error),
+        error: error => {
+          console.log("Not Found" , error);
+          let errorObj = error.error.error;
+          console.log(errorObj.message);
+           
+          if(errorObj.code === 1006){
+            this.errorMessage = errorObj.message;
+          }
+
+          if(errorObj.code == 1003){
+            this.errorMessage = "Cannot be blank"
+          }
+
+        },
       });
   }
 }
