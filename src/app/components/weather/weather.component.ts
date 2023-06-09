@@ -13,11 +13,14 @@ export class WeatherComponent {
   localWeather: WeatherML | undefined;
   errorMessage = "";
   location = "Toronto";
+  lng = 0;
+  lat = 0;
+  coords = "";
   //Constructor
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.getLocalWeather(this.location);
+    this.getUserLocation();
   }
 
   //Methods
@@ -43,7 +46,7 @@ export class WeatherComponent {
         next: (val: WeatherML) => {
           this.errorMessage = "";
           this.localWeather = { ...val};
-          console.log("posts" , this.localWeather);
+          console.log("Subscribed Data" , this.localWeather);
           },
         error: error => {
           console.log("Not Found" , error);
@@ -61,6 +64,28 @@ export class WeatherComponent {
         },
       });
   }
+
+  getUserLocation() {
+    // get Users current position
+    // onInit
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position);
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.coords = this.lat +"," +  this.lng;
+        console.log("Position: ", this.coords)
+        this.getLocalWeather(this.coords);
+      },(error) => {
+        alert(`Location access is blocked: ${error.message}`);
+      });
+    }else{
+      console.log("User not allowed")
+    }
+  }
+
 }
+
+
 
 
