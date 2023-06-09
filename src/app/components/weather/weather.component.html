@@ -1,15 +1,16 @@
 <div class="container">
-    <div class="location" *ngIf="localWeather">
+    <div class="location" >
         <form #locationForm="ngForm" (ngSubmit)="getLocation(locationForm)" >
             <div class="search-box">
-                <input class="search-bar" #locationModel="ngModel" name="location" required type="text" placeholder="Enter Location" ngModel >
+                <input class="search-bar" autocomplete="off" #locationModel="ngModel" name="location" required type="text" placeholder="Enter Location" ngModel >
                 <button class="fa-solid fa-magnifying-glass" type="submit"  ></button>
             </div>
             <div class="missing" *ngIf="errorMessage"  >{{ errorMessage }}</div>
         </form>
-        <p>{{ localWeather.location.name }}, {{ localWeather.location.region }}</p>
+        
     </div>
-    <div class="heading">
+    <div class="heading" *ngIf="localWeather">
+        <p >{{ localWeather.location.name }}, {{ localWeather.location.region }}</p>
         <span >Current Conditions</span>
     </div>
     <div class="weather-box" *ngIf="localWeather" >
