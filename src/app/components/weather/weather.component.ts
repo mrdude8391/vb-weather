@@ -10,11 +10,9 @@ import { Component } from '@angular/core';
 })
 export class WeatherComponent {
   //Properties
-  localWeather: WeatherML | undefined;
+  weather: WeatherML | undefined;
   errorMessage = "";
-  location = "Toronto";
-  lng = 0;
-  lat = 0;
+  location = "";
   coords = "";
   //Constructor
   constructor(private weatherService: WeatherService) {}
@@ -22,60 +20,54 @@ export class WeatherComponent {
   ngOnInit(): void {
     this.getUserLocation();
   }
-
-  //Methods
-  getWeather() {
-    let response = this.weatherService.getWeather();
+  //
+  //METHODS
+  // 
+  getMockWeather() {// MOCK METHOD 
+    let response = this.weatherService.getMockWeather();
     console.log("response is" , response)
     response.subscribe((data) => {
       console.log("getting weather", data);
     });
   }
 
-  getLocation(locationForm: any){
+  getLocation(locationForm: any){ // Search location handler 
     this.location = locationForm.value.location;
     if(this.location === ""){ return;}
     console.log("Form Submitted", locationForm);
-    this.getLocalWeather(this.location);
+    this.getWeather(this.location);
   }
 
-  getLocalWeather(location: string) {
-    this.weatherService.getPosts(location)
+  getWeather(location: string) { // Weather Service API Call
+    this.weatherService.getWeather(location)
     .subscribe(
       {
         next: (val: WeatherML) => {
           this.errorMessage = "";
-          this.localWeather = { ...val};
-          console.log("Subscribed Data" , this.localWeather);
+          this.weather = { ...val};
+          console.log("Weather Data" , this.weather);
           },
         error: error => {
           console.log("Not Found" , error);
           let errorObj = error.error.error;
           console.log(errorObj.message);
-           
           if(errorObj.code === 1006){
             this.errorMessage = errorObj.message;
           }
-
           if(errorObj.code == 1003){
             this.errorMessage = "Cannot be blank"
           }
-
         },
       });
   }
 
-  getUserLocation() {
-    // get Users current position
-    // onInit
+  getUserLocation() {// Geolocation user position onInit
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         console.log(position);
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-        this.coords = this.lat +"," +  this.lng;
+        this.coords = position.coords.latitude +"," +  position.coords.longitude;
         console.log("Position: ", this.coords)
-        this.getLocalWeather(this.coords);
+        this.getWeather(this.coords);
       },(error) => {
         alert(`Location access is blocked: ${error.message}`);
       });
