@@ -9,6 +9,6 @@ This project is a basic Angular project that uses WeatherApi to get local weathe
 [x] Get Forecast weather\
 [x] Get API calls by search\
 [x] Handle no such location\
-[] Using current location\
+[x] Using current location\
 [] display weekly forecast\
 [] Add Chart.js\
