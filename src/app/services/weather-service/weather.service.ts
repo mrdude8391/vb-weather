@@ -16,11 +16,12 @@ export class WeatherService {
   posts: any;
   constructor(private http: HttpClient) { }
 
-  getWeather() { 
+  getMockWeather() { 
+    // MOCK WEATHER
     let url = 'test/weather.json';
     return this.http.get<WeatherML>(url); }
 
-  getPosts(location: string) {
+  getWeather(location: string) {
     // /forecast.json?key=a69c3d3f037c4005a60214157231805&q=Toronto&days=1&aqi=no&alerts=no
     console.log(location);
     let url = this.ROOT_URL + '/forecast.json?key=' + this.KEY + '&q=' + location + '&days=1&aqi=no&alerts=no';
