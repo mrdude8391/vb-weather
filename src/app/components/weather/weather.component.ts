@@ -1,5 +1,5 @@
 import { WeatherService } from './../../services/weather-service/weather.service';
-import { Weather, WeatherError, WeatherML } from 'src/app/interfaces/weather';
+import { Hour, Weather, WeatherError, WeatherML } from 'src/app/interfaces/weather';
 import { Component } from '@angular/core';
 
 
@@ -11,11 +11,12 @@ import { Component } from '@angular/core';
 export class WeatherComponent {
   //Properties
   weather: WeatherML | undefined;
+  hours: Hour[] | undefined;
   errorMessage = "";
   location = "";
   coords = "";
   //Constructor
-  constructor(private weatherService: WeatherService) {}
+  constructor(public weatherService: WeatherService) {}
 
   ngOnInit(): void {
     this.getUserLocation();
@@ -39,13 +40,13 @@ export class WeatherComponent {
   }
 
   getWeather(location: string) { // Weather Service API Call
-    this.weatherService.getWeather(location)
-    .subscribe(
+    this.weatherService.getWeather(location).subscribe(
       {
         next: (val: WeatherML) => {
           this.errorMessage = "";
           this.weather = { ...val};
-          console.log("Weather Data" , this.weather);
+          this.hours = val.forecast.forecastday[0].hour;
+          console.log("Subscribed Weather Data" , this.weather);
           },
         error: error => {
           console.log("Not Found" , error);
@@ -59,14 +60,14 @@ export class WeatherComponent {
           }
         },
       });
+    
   }
 
   getUserLocation() {// Geolocation user position onInit
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
         this.coords = position.coords.latitude +"," +  position.coords.longitude;
-        console.log("Position: ", this.coords)
+        console.log("User Position: ", this.coords)
         this.getWeather(this.coords);
       },(error) => {
         alert(`Location access is blocked: ${error.message}`);

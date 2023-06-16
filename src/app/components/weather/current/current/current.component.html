@@ -1,0 +1,33 @@
+<div class="heading" *ngIf="weather">
+    <p >{{ weather.location.name }}, {{ weather.location.region }}</p>
+    <span >Current Conditions</span>
+</div>
+<div class="weather-box" *ngIf="weather" >
+    <div class="primary-info">
+        <div class="weather-info">
+            <img class="symbol" [src]="weather.current.condition.icon" alt="current condition">
+            <p class="temp">{{ weather.current.temp_c }}</p>
+            <p class="degrees">°C</p>
+        </div>
+        <div>
+            <p>{{ weather.current.condition.text }}</p>
+        </div>
+    </div>
+    <div class="secondary-info">
+        <div class="wind-details">
+            <p>Wind</p>
+            <div class="text-stack" >
+                <p class="wind">{{ weather.current.wind_kph | number: '1.0-0'}}</p>
+                <p class="details">km/h<br>{{ weather.current.wind_dir }}</p>
+            </div>
+        </div>
+        <div>
+            <span>Gusts</span>
+            <div class="text-stack">
+                <span class="wind">{{ weather.current.gust_kph | number: '1.0-0' }} </span>
+                <span class="details" >km/h</span>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -12,7 +12,8 @@ export class WeatherService {
   //properties
   readonly ROOT_URL = 'http://api.weatherapi.com/v1';
   readonly KEY = 'a69c3d3f037c4005a60214157231805';
-
+  weather: WeatherML | undefined;
+  
   posts: any;
   constructor(private http: HttpClient) { }
 
@@ -21,12 +22,11 @@ export class WeatherService {
     let url = 'test/weather.json';
     return this.http.get<WeatherML>(url); }
 
-  getWeather(location: string) {
-    // /forecast.json?key=a69c3d3f037c4005a60214157231805&q=Toronto&days=1&aqi=no&alerts=no
-    console.log(location);
-    let url = this.ROOT_URL + '/forecast.json?key=' + this.KEY + '&q=' + location + '&days=1&aqi=no&alerts=no';
-    console.log(url);
-    return this.http.get<WeatherML>(url)
+getWeather(location: string) : Observable<WeatherML> {
+  // /forecast.json?key=a69c3d3f037c4005a60214157231805&q=Toronto&days=1&aqi=no&alerts=no
+  console.log("getWeather location", location);
+  let url = this.ROOT_URL + '/forecast.json?key=' + this.KEY + '&q=' + location + '&days=1&aqi=no&alerts=no';
+  return this.http.get<WeatherML>(url)
   .pipe(
     tap(() => console.log("HTTP Request" , url)),
     catchError(this.handleError<WeatherML>('getWeather'))

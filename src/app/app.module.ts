@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ForecastComponent } from './components/weather/forecast/forecast.component';
+import { CurrentComponent } from './components/weather/current/current/current.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherComponent
+    WeatherComponent,
+    ForecastComponent,
+    CurrentComponent
   ],
   imports: [
     BrowserModule,
