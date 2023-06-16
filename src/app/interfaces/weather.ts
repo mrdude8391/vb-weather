@@ -21,7 +21,8 @@ export interface ForecastDay {
             icon: string
         },
         uv: number
-    }
+    },
+    hour: Hour[],
 }
 
 export interface Hour {
