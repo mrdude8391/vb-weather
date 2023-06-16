@@ -10,6 +10,8 @@ This project is a basic Angular project that uses WeatherApi to get local weathe
 [x] Get API calls by search\
 [x] Handle no such location\
 [x] Using current location\
-[] display weekly forecast\
-[] Add Chart.js\
+[x] display weekly forecast\
+[x] Add Chart.js\
+[] Fix chart.js using ngOnChanges\
+[] chart to display information from current time + 12 hours\
 [] prevent multiple API Calls (shareReplay)\
