@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ForecastComponent } from './components/weather/forecast/forecast.component';
 import { CurrentComponent } from './components/weather/current/current/current.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CurrentComponent } from './components/weather/current/current/current.c
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgChartsModule,
     
   ],
   providers: [],

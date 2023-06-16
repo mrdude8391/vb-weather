@@ -1,7 +1,18 @@
 <p>forecast works!</p>
 
-<ul>
+<ul hidden="true">
     <li *ngFor="let hour of hours">{{ hour.temp_c }}</li>
 </ul>
 <button (click)="logWeather()">LOG WEATHER</button>
 
+<div>
+    <p> {{ tempData }}</p>
+</div>
+
+<canvas baseChart width="400" height="200"
+    [type]="'line'"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [legend]="false"
+    >
+  </canvas>
