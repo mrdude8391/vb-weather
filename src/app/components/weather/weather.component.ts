@@ -49,7 +49,6 @@ export class WeatherComponent {
           console.log("Subscribed Weather Data" , this.weather);
           },
         error: error => {
-          console.log("Not Found" , error);
           let errorObj = error.error.error;
           console.log(errorObj.message);
           if(errorObj.code === 1006){

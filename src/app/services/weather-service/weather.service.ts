@@ -35,7 +35,7 @@ getWeather(location: string) : Observable<WeatherML> {
 
   private handleError<T>(operation = 'operation', result?: T){
     return (error: Error): Observable<T> => {
-      console.log(operation, error);
+      console.log(operation, "Not Found", error);
       return throwError(() => error);
     }
   }
