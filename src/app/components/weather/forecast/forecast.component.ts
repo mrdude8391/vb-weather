@@ -1,9 +1,7 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
-import { throwIfEmpty } from 'rxjs';
-import { Hour, WeatherML } from 'src/app/interfaces/weather';
+import { Hour } from 'src/app/interfaces/weather';
 import { WeatherService } from 'src/app/services/weather-service/weather.service';
-import { de } from 'date-fns/locale';
 import 'chartjs-adapter-date-fns';
 
 @Component({
@@ -12,15 +10,21 @@ import 'chartjs-adapter-date-fns';
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent {
-  //properties
   
  //Constructor
  constructor(public weatherService: WeatherService) {
  }
  //properties
- @Input() hours: Hour[] | undefined;
+ private _hours: Hour[] = [];
+ @Input() set hours(value: Hour[] ) {
+    this._hours = value;
+    this.updateChartData();
+ };
+ get hours(): Hour[] {
+  return this._hours;
+ }
 
- tempData : any;
+ tempData : any = [];
  
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
@@ -73,17 +77,11 @@ export class ForecastComponent {
   }
   return labels
  }
- 
- ngOnInit() : void {
-  
- }
 
- ngOnChanges(changes: SimpleChanges){
-  
-  this.tempData = this.hours?.map(o => o.temp_c);
-  console.log("forecast oninit",this.tempData);
-  this.lineChartData.datasets[0].data = this.tempData;
+ updateChartData() {
+  this.lineChartData.datasets[0].data = this.hours.map(o => o.temp_c);
   this.lineChartData.labels = this.hours?.map(o => o.time);
+  this.lineChartData = {...this.lineChartData};
  }
  
 }
