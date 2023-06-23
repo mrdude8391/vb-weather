@@ -3,6 +3,10 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { Hour } from 'src/app/interfaces/weather';
 import { WeatherService } from 'src/app/services/weather-service/weather.service';
 import 'chartjs-adapter-date-fns';
+import { Chart } from 'chart.js';
+
+import annotationPlugin from 'chartjs-plugin-annotation';
+
 
 @Component({
   selector: 'app-forecast',
@@ -14,6 +18,11 @@ export class ForecastComponent {
  //Constructor
  constructor(public weatherService: WeatherService) {
  }
+
+ngOnInit() : void {
+  Chart.register(annotationPlugin);
+  console.log(this.currentTime);
+}
  //properties
  private _hours: Hour[] = [];
  @Input() set hours(value: Hour[] ) {
@@ -24,7 +33,7 @@ export class ForecastComponent {
   return this._hours;
  }
 
- tempData : any = [];
+ currentTime = Date.now();
  
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
@@ -61,6 +70,30 @@ export class ForecastComponent {
         
       },
       
+    },
+    plugins: {
+      annotation: {
+        annotations: {
+          line1: {
+            type: 'line',
+            yMin: 30,
+            yMax: 0,
+            xMax: this.currentTime,
+            xMin: this.currentTime,
+            borderColor: 'rgb(255, 99, 132)',
+            borderWidth: 2,
+            label: {
+              position: "start",
+              display: true,
+              content: ["Now"],
+              font: {
+                size: 12
+              },
+            }
+
+          }
+        }
+      }
     }
   };
 

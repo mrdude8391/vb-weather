@@ -1,10 +1,8 @@
 <button (click)="logWeather()">LOG WEATHER</button>
 
-<div>
-    <p> {{ tempData }}</p>
-</div>
 
-<div *ngIf="tempData">
+
+<div >
     <canvas baseChart width="400" height="200"
     [type]="'line'"
     [data]="lineChartData"
