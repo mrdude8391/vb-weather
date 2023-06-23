@@ -13,5 +13,5 @@ This project is a basic Angular project that uses WeatherApi to get local weathe
 - [x] display weekly forecast\
 - [x] Add Chart.js\
 - [x] Fix chart.js using ngOnChanges (used setter and getter)\
-- [] chart to display information from current time + 12 hours\
+- [ ] (https://github.com/mrdude8391/vb-weather/issues/1)
 - [x] prevent multiple API Calls (used smart-dumb components)\
