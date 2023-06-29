@@ -9,10 +9,15 @@
         </form>
         
     </div>
-
     
     <div *ngIf="weather">
         <app-current [weather]="weather"></app-current>
+    </div>
+
+    <div *ngIf="weather">
+        <div *ngFor="let day of weather.forecast.forecastday">
+            <button (click)="changeDay(day.hour)">{{ day.date }}</button>
+        </div>
     </div>
 
     <div *ngIf="hours">

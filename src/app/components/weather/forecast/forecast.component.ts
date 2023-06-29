@@ -5,7 +5,8 @@ import { WeatherService } from 'src/app/services/weather-service/weather.service
 import 'chartjs-adapter-date-fns';
 import { Chart } from 'chart.js';
 
-import annotationPlugin from 'chartjs-plugin-annotation';
+import annotationPlugin, { AnnotationPluginOptions } from 'chartjs-plugin-annotation';
+import { _DeepPartialObject } from 'chart.js/dist/types/utils';
 
 
 @Component({
@@ -21,7 +22,6 @@ export class ForecastComponent {
 
 ngOnInit() : void {
   Chart.register(annotationPlugin);
-  console.log(this.currentTime);
 }
  //properties
  private _hours: Hour[] = [];
@@ -73,7 +73,7 @@ ngOnInit() : void {
     },
     plugins: {
       annotation: {
-        annotations: {
+        annotations:{
           line1: {
             type: 'line',
             yMin: 30,
@@ -93,15 +93,35 @@ ngOnInit() : void {
 
           }
         }
+        
       }
     }
   };
 
- //methods
+  line1 : _DeepPartialObject<AnnotationPluginOptions>  = {
+    annotations: {
+      line1: {
+        type: 'line',
+        yMin: 30,
+        yMax: 0,
+        xMax: this.currentTime,
+        xMin: this.currentTime,
+        borderColor: 'rgb(255, 99, 132)',
+        borderWidth: 2,
+        label: {
+          position: "start",
+          display: true,
+          content: ["Now"],
+          font: {
+            size: 12
+          },
+        }
 
- logWeather() {
-  console.log(this.hours);
- }
+      }
+    }
+  }
+
+ //methods
  
  hourLabelsInit() {
   let labels: Number[] = [];
@@ -112,6 +132,13 @@ ngOnInit() : void {
  }
 
  updateChartData() {
+  let forecastDay = new Date(this._hours[0].time).getDate();
+  let today = new Date(this.currentTime).getDate();
+  if(forecastDay !== today && this.lineChartOptions.plugins?.annotation != undefined){
+    this.lineChartOptions.plugins.annotation = {};
+  }else{
+    this.lineChartOptions.plugins!.annotation = {...this.line1}
+  }
   this.lineChartData.datasets[0].data = this.hours.map(o => o.temp_c);
   this.lineChartData.labels = this.hours?.map(o => o.time);
   this.lineChartData = {...this.lineChartData};

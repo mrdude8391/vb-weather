@@ -77,6 +77,10 @@ export class WeatherComponent {
     }
   }
 
+  changeDay(hours : Hour[]){
+    this.hours = hours;
+  }
+
 }
 
 
