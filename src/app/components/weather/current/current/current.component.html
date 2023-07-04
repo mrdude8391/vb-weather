@@ -11,6 +11,7 @@
         </div>
         <div>
             <p class="conditions">{{ weather.current.condition.text }}</p>
+            <p class="conditions">Feels like {{ weather.current.feelslike_c | number: '1.0-0'}}°</p>
         </div>
     </div>
     <div class="secondary-info">
@@ -28,6 +29,9 @@
                 <span class="details" >km/h</span>
             </div>
         </div>
-        
+        <div>
+            <p>UV Index</p>
+            <p class="wind">{{ weather.current.uv }}</p>
+        </div>
     </div>
 </div>
