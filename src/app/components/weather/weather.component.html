@@ -14,14 +14,18 @@
         <app-current [weather]="weather"></app-current>
     </div>
 
-    <div *ngIf="weather">
-        <div *ngFor="let day of weather.forecast.forecastday">
-            <button (click)="changeDay(day.hour)">{{ day.date }}</button>
+    <div class="day-selector" *ngIf="weather">
+        <div  *ngFor="let day of weather.forecast.forecastday">
+            <button [ngClass]="{'activate' : selectedDay == day }" (click)="changeDay(day);selectedDay = day">
+                <p>{{ day.date | date: 'EEE' }}</p>
+                <img [src]="day.day.condition.icon" >
+                <p>{{ day.day.avgtemp_c | number: '1.0-0'}}°</p>
+            </button>
         </div>
     </div>
 
-    <div *ngIf="hours">
-        <app-forecast  [hours]="hours"></app-forecast> 
+    <div *ngIf="selectedDay">
+        <app-forecast  [hours]="selectedDay.hour"></app-forecast> 
     </div>
     
 </div>

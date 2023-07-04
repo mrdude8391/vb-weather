@@ -134,6 +134,8 @@ ngOnInit() : void {
  updateChartData() {
   let forecastDay = new Date(this._hours[0].time).getDate();
   let today = new Date(this.currentTime).getDate();
+  //console.log(new Date(this._hours[0].time), new Date(this.currentTime))
+  //console.log("day + now", forecastDay, today);
   if(forecastDay !== today && this.lineChartOptions.plugins?.annotation != undefined){
     this.lineChartOptions.plugins.annotation = {};
   }else{

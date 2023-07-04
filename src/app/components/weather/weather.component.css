@@ -85,3 +85,21 @@
     background-color: #ffcdd2;
     padding: 5px 2px 5px 2px ;
 }
+
+.day-selector{
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.day-selector button{
+    cursor: pointer;
+    background-color: inherit;
+    display: flex;
+    align-items: center; 
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.day-selector .activate{
+    background-color: #f0f0f0;
+}

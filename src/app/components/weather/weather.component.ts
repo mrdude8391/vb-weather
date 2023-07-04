@@ -1,5 +1,5 @@
 import { WeatherService } from './../../services/weather-service/weather.service';
-import { Hour, Weather, WeatherError, WeatherML } from 'src/app/interfaces/weather';
+import { ForecastDay, Hour, Weather, WeatherError, WeatherML } from 'src/app/interfaces/weather';
 import { Component } from '@angular/core';
 import { of } from 'rxjs';
 
@@ -12,10 +12,11 @@ import { of } from 'rxjs';
 export class WeatherComponent {
   //Properties
   weather: WeatherML | undefined;
-  hours: Hour[] | undefined;
+  selectedDay: ForecastDay | undefined;
   errorMessage = "";
   location = "";
   coords = "";
+
   //Constructor
   constructor(public weatherService: WeatherService) {}
 
@@ -46,7 +47,7 @@ export class WeatherComponent {
         next: (val: WeatherML) => {
           this.errorMessage = "";
           this.weather = { ...val};
-          this.hours = val.forecast.forecastday[0].hour;
+          this.selectedDay = val.forecast.forecastday[0];
           console.log("Subscribed Weather Data" , this.weather);
           },
         error: error => {
@@ -77,8 +78,8 @@ export class WeatherComponent {
     }
   }
 
-  changeDay(hours : Hour[]){
-    this.hours = hours;
+  changeDay(day : ForecastDay){
+    this.selectedDay = day;
   }
 
 }

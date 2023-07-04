@@ -23,7 +23,12 @@
 
 .primary-info{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.primary-info .conditions{
+    font-size: 18px;
 }
 
 .weather-info{
