@@ -1,0 +1,28 @@
+<div class="heading">
+    <span >{{ selectedDay.date | date: 'EEEE'}}</span>
+</div>
+<div class="weather-box" *ngIf="selectedDay" >
+    <div class="primary-info">
+        <div class="weather-info">
+            <img class="symbol" [src]="selectedDay.day.condition.icon" alt="current condition">
+            <p class="temp">{{ selectedDay.day.avgtemp_c | number:'1.0-0'}}</p>
+            <p class="degrees">°C</p>
+        </div>
+        <div>
+            <p class="conditions">{{ selectedDay.day.condition.text }}</p>
+        </div>
+    </div>
+    <div class="secondary-info">
+        <div class="wind-details">
+            <p>Max Wind</p>
+            <div class="text-stack" >
+                <p class="wind">{{ selectedDay.day.maxwind_kph | number: '1.0-0'}}</p>
+                <p class="details">km/h</p>
+            </div>
+        </div>
+        <div>
+            <p>UV Index</p>
+            <p class="wind">{{ selectedDay.day.uv }}</p>
+        </div>
+    </div>
+</div>
