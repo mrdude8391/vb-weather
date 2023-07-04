@@ -1,7 +1,7 @@
 import { WeatherService } from './../../services/weather-service/weather.service';
 import { ForecastDay, Hour, Weather, WeatherError, WeatherML } from 'src/app/interfaces/weather';
 import { Component } from '@angular/core';
-import { of } from 'rxjs';
+
 
 
 @Component({
