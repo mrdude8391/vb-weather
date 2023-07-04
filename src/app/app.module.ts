@@ -10,13 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { ForecastComponent } from './components/weather/forecast/forecast.component';
 import { CurrentComponent } from './components/weather/current/current/current.component';
 import { NgChartsModule } from 'ng2-charts';
+import { DaySelectorComponent } from './components/weather/day-selector/day-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     ForecastComponent,
-    CurrentComponent
+    CurrentComponent,
+    DaySelectorComponent
   ],
   imports: [
     BrowserModule,
