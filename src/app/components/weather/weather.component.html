@@ -16,11 +16,8 @@
 
     <div class="day-selector" *ngIf="weather">
         <div  *ngFor="let day of weather.forecast.forecastday">
-            <app-day-selector></app-day-selector>
             <button [ngClass]="{'activate' : selectedDay == day }" (click)="changeDay(day);selectedDay = day">
-                <p>{{ day.date | date: 'EEE' }}</p>
-                <img [src]="day.day.condition.icon" >
-                <p>{{ day.day.avgtemp_c | number: '1.0-0'}}°</p>
+                <app-day-selector [day]="day"></app-day-selector>
             </button>
         </div>
     </div>

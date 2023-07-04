@@ -1,1 +1,6 @@
-<p>day-selector works!</p>
+<div class="day-selector">
+    <p>{{ day.date | date: 'EEE' }}</p>
+    <img [src]="day.day.condition.icon" >
+    <p>{{ day.day.avgtemp_c | number: '1.0-0'}}°</p>
+</div>
+
