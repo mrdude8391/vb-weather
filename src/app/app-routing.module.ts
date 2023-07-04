@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WeatherComponent } from './components/weather/weather.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path:'', pathMatch: 'full', redirectTo: 'home'},
+  { path:'home', component: WeatherComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
