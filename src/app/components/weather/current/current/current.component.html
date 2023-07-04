@@ -1,16 +1,16 @@
-<div class="heading" *ngIf="weather">
-    <p >{{ weather.location.name }}, {{ weather.location.region }}</p>
+<div class="heading">
     <span >Current Conditions</span>
 </div>
 <div class="weather-box" *ngIf="weather" >
     <div class="primary-info">
         <div class="weather-info">
             <img class="symbol" [src]="weather.current.condition.icon" alt="current condition">
-            <p class="temp">{{ weather.current.temp_c }}</p>
+            <p class="temp">{{ weather.current.temp_c | number:'1.0-0'}}</p>
             <p class="degrees">°C</p>
         </div>
         <div>
             <p class="conditions">{{ weather.current.condition.text }}</p>
+            <p class="conditions">Feels like {{ weather.current.feelslike_c | number: '1.0-0'}}°</p>
         </div>
     </div>
     <div class="secondary-info">
@@ -28,6 +28,9 @@
                 <span class="details" >km/h</span>
             </div>
         </div>
-        
+        <div>
+            <p>UV Index</p>
+            <p class="wind">{{ weather.current.uv }}</p>
+        </div>
     </div>
 </div>

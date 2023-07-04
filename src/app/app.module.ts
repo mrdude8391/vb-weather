@@ -11,6 +11,7 @@ import { ForecastComponent } from './components/weather/forecast/forecast.compon
 import { CurrentComponent } from './components/weather/current/current/current.component';
 import { NgChartsModule } from 'ng2-charts';
 import { DaySelectorComponent } from './components/weather/day-selector/day-selector.component';
+import { OtherDayComponent } from './components/weather/other-day/other-day.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DaySelectorComponent } from './components/weather/day-selector/day-sele
     WeatherComponent,
     ForecastComponent,
     CurrentComponent,
-    DaySelectorComponent
+    DaySelectorComponent,
+    OtherDayComponent
   ],
   imports: [
     BrowserModule,

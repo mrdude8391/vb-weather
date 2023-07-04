@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { WeatherML } from 'src/app/interfaces/weather';
+import { ForecastDay, WeatherML } from 'src/app/interfaces/weather';
 
 @Component({
   selector: 'app-current',
@@ -8,4 +8,5 @@ import { WeatherML } from 'src/app/interfaces/weather';
 })
 export class CurrentComponent {
   @Input() weather: WeatherML | undefined;
+  @Input() selectedDay!: ForecastDay; 
 }

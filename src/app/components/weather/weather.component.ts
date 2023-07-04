@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
 export class WeatherComponent {
   //Properties
   weather: WeatherML | undefined;
-  selectedDay: ForecastDay | undefined;
+  selectedDay!: ForecastDay ;
   errorMessage = "";
   location = "";
   coords = "";
@@ -78,9 +78,6 @@ export class WeatherComponent {
     }
   }
 
-  changeDay(day : ForecastDay){
-    this.selectedDay = day;
-  }
 
 }
 

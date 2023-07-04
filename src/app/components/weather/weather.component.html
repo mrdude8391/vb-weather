@@ -11,12 +11,14 @@
     </div>
     
     <div *ngIf="weather">
-        <app-current [weather]="weather"></app-current>
+        <p class="heading">{{ weather.location.name }}, {{ weather.location.region }}</p>
+        <app-current *ngIf="selectedDay == weather.forecast.forecastday[0]" [weather]="weather" ></app-current>
+        <app-other-day *ngIf="selectedDay !== weather.forecast.forecastday[0]" [selectedDay]="selectedDay"></app-other-day>
     </div>
 
     <div class="day-selector" *ngIf="weather">
         <div  *ngFor="let day of weather.forecast.forecastday">
-            <button [ngClass]="{'activate' : selectedDay == day }" (click)="changeDay(day);selectedDay = day">
+            <button [ngClass]="{'activate' : selectedDay == day }" (click)="selectedDay = day">
                 <app-day-selector [day]="day"></app-day-selector>
             </button>
         </div>
