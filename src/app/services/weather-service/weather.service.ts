@@ -10,7 +10,7 @@ import { catchError, retry, tap } from 'rxjs/operators';
 })
 export class WeatherService {
   //properties
-  readonly ROOT_URL = 'http://api.weatherapi.com/v1';
+  readonly ROOT_URL = 'https://api.weatherapi.com/v1';
   readonly KEY = 'a69c3d3f037c4005a60214157231805';
   weather: WeatherML | undefined;
   
