@@ -25,7 +25,7 @@ export class WeatherService {
 getWeather(location: string) : Observable<WeatherML> {
   // /forecast.json?key=a69c3d3f037c4005a60214157231805&q=Toronto&days=1&aqi=no&alerts=no
   console.log("getWeather location", location);
-  let url = this.ROOT_URL + '/forecast.json?key=' + this.KEY + '&q=' + location + '&days=3&aqi=no&alerts=nomonkey/';
+  let url = this.ROOT_URL + '/forecast.json?key=' + this.KEY + '&q=' + location + '&days=3&aqi=no&alerts=no/';
   return this.http.get<WeatherML>(url)
   .pipe(
     tap(() => console.log("HTTP Request" , url)),
