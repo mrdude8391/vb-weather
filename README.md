@@ -1,6 +1,7 @@
 # VbWeather
 
 This project is a basic Angular project that uses WeatherApi to get local weather data so that you can figure out conditions for beach volleyball
+Check it out here[https://mrdude8391.github.io/vb-weather/home]
 
 # Roadmap
 
