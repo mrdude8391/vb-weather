@@ -14,21 +14,21 @@
         </div>
     </div>
     <div class="secondary-info">
-        <div class="wind-details">
+        <div >
             <p>Wind</p>
             <div class="text-stack" >
                 <p class="wind">{{ weather.current.wind_kph | number: '1.0-0'}}</p>
                 <p class="details">km/h<br>{{ weather.current.wind_dir }}</p>
             </div>
         </div>
-        <div>
-            <span>Gusts</span>
+        <div >
+            <span>Percipitation</span>
             <div class="text-stack">
-                <span class="wind">{{ weather.current.gust_kph | number: '1.0-0' }} </span>
-                <span class="details" >km/h</span>
+                <span class="wind">{{ weather.current.precip_mm | number: '1.0-0' }} </span>
+                <span class="details" >mm</span>
             </div>
         </div>
-        <div>
+        <div > 
             <p>UV Index</p>
             <p class="wind">{{ weather.current.uv }}</p>
         </div>

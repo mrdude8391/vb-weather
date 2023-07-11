@@ -1,0 +1,8 @@
+<div class="container">
+    <div *ngFor="let hour of hours; let i = index" class="card" > 
+        <div *ngIf="i % 4 === 0" >
+            <p>{{ hour.wind_kph | number:'1.0-0'}} km/h</p>
+            <p>{{ hour.time | date: 'h a'  }}</p>
+        </div>
+    </div>
+</div>

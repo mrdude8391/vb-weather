@@ -54,9 +54,11 @@
 .text-stack{
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .search-box{
     display: flex;
     justify-content: space-between;
 }
+

@@ -27,5 +27,9 @@
     <div *ngIf="selectedDay">
         <app-forecast  [hours]="selectedDay.hour"></app-forecast> 
     </div>
+
+    <div *ngIf="selectedDay">
+        <app-wind-data [hours]="selectedDay.hour"></app-wind-data>
+    </div>
     
 </div>

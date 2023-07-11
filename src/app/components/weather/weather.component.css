@@ -1,6 +1,8 @@
 .container{
     font-family: Roboto, sans-serif;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .location{
     font-size: 32px;
