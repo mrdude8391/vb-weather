@@ -24,12 +24,19 @@
         </div>
     </div>
 
-    <div *ngIf="selectedDay">
+    <div *ngIf="selectedDay" >
+        <p class="section-heading">Temperature</p>
         <app-forecast  [hours]="selectedDay.hour"></app-forecast> 
     </div>
 
-    <div *ngIf="selectedDay">
+    <div *ngIf="selectedDay" >
+        <p class="section-heading">Wind</p>
         <app-wind-data [hours]="selectedDay.hour"></app-wind-data>
+    </div>
+
+    <div *ngIf="selectedDay" >
+        <p class="section-heading">Precipitation</p>
+        <app-rain-data [hours]="selectedDay.hour"></app-rain-data>
     </div>
     
 </div>

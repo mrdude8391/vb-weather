@@ -1,0 +1,7 @@
+<div class="container">
+    <div *ngFor="let hour of hours; let i = index" class="card"  > 
+        <p class="speed">{{ hour.precip_mm}} mm</p>
+        <img [src]="hour.condition.icon" >
+        <p class="time">{{ hour.chance_of_rain }}%</p>
+    </div>
+</div>

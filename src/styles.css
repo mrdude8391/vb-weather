@@ -11,14 +11,9 @@
 
 body{   
     background: #ffffff;
+    max-width: 1040px;
+    padding: 0 5vw;
 }
 
-.main{
-display: flex;
-justify-content: center;
 
-}
 
-.root{
-  width: 650px;
-}

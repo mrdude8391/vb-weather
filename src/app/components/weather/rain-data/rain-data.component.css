@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    padding: 5px;
+    width: 80px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.card .speed{
+    
+}
+
+.card .dir{
+    
+}
+
+.card .time{
+
+}
