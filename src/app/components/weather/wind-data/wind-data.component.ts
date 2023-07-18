@@ -7,8 +7,18 @@ import { Hour } from 'src/app/interfaces/weather';
   styleUrls: ['./wind-data.component.css']
 })
 export class WindDataComponent {
-  @Input() hours! : Hour[]; 
-
   
 
+  private _hours: Hour[] = [];
+  @Input() set hours(value: Hour[] ) {
+    let segment = [];
+    for(let i = 0; i < value.length; i=i+4){
+      segment.push(value[i]);
+    }
+    this._hours = segment;
+ }; 
+
+  get hours(): Hour[] {
+  return this._hours;
+ }
 }
