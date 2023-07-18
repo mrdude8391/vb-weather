@@ -60,6 +60,7 @@ export interface WeatherML {
         gust_kph: number,
         wind_kph: number,
         wind_dir: string,
+        precip_mm: string,
         feelslike_c: string,
         uv: string,
         condition: {

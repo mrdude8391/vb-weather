@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="location" >
+    <div class="search" >
         <form #locationForm="ngForm" (ngSubmit)="getLocation(locationForm)" >
             <div class="search-box">
                 <input class="search-bar" autocomplete="off" #locationModel="ngModel" name="location" required type="text" placeholder="Enter Location" ngModel >
@@ -24,8 +24,19 @@
         </div>
     </div>
 
-    <div *ngIf="selectedDay">
+    <div *ngIf="selectedDay" >
+        <p class="section-heading">Temperature</p>
         <app-forecast  [hours]="selectedDay.hour"></app-forecast> 
+    </div>
+
+    <div *ngIf="selectedDay" >
+        <p class="section-heading">Wind</p>
+        <app-wind-data [hours]="selectedDay.hour"></app-wind-data>
+    </div>
+
+    <div *ngIf="selectedDay" >
+        <p class="section-heading">Precipitation</p>
+        <app-rain-data [hours]="selectedDay.hour"></app-rain-data>
     </div>
     
 </div>

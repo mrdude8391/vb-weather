@@ -1,0 +1,6 @@
+<div class="container">
+    <div *ngFor="let hour of hours; let i = index" class="card"  > 
+        <p class="speed">{{ hour.wind_kph | number:'1.0-0'}} km/h</p>
+        <p class="dir" >{{ hour.wind_dir }}</p>
+    </div>
+</div>
