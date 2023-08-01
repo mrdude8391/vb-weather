@@ -5,8 +5,12 @@
     <div class="primary-info">
         <div class="weather-info">
             <img class="symbol" [src]="weather.current.condition.icon" alt="current condition">
-            <p class="temp">{{ weather.current.temp_c | number:'1.0-0'}}</p>
-            <p class="degrees">°C</p>
+            <div class="text">
+                <p class="temp">{{ weather.current.temp_c | number:'1.0-0'}}</p>
+                <p class="degrees">°C</p>
+            </div>
+            
+            
         </div>
         <div>
             <p class="conditions">{{ weather.current.condition.text }}</p>
@@ -22,7 +26,7 @@
             </div>
         </div>
         <div >
-            <span>Percipitation</span>
+            <span>Pre</span>
             <div class="text-stack">
                 <span class="wind">{{ weather.current.precip_mm | number: '1.0-0' }} </span>
                 <span class="details" >mm</span>

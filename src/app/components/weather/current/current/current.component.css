@@ -6,32 +6,39 @@
 }
 
 .heading{
-    font-size: 24px;
+    font-size: 18px;
     
 }
 
 .primary-info{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
 }
 
 .primary-info .conditions{
-    font-size: 18px;
+    font-size: 16px;
+    
 }
 
 .weather-info{
     display: flex;
-    
 }
 .weather-info .temp{
-    font-size: 52px;
+    font-size: 32px;
     color: #e8bf25;
+    
 }
+
+.weather-info .text{
+    display: flex;
+    align-items: center;
+}
+
 .weather-info .degrees{
-    font-size: 20px;
-    vertical-align: top;
-    margin-top: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    
     
 }
 
@@ -44,7 +51,7 @@
     gap: 1rem;
 }
 .wind{
-    font-size: 32px;
+    font-size: 18px;
 }
 
 .details{

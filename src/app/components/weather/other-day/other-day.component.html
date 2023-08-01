@@ -5,8 +5,11 @@
     <div class="primary-info">
         <div class="weather-info">
             <img class="symbol" [src]="selectedDay.day.condition.icon" alt="current condition">
-            <p class="temp">{{ selectedDay.day.avgtemp_c | number:'1.0-0'}}</p>
-            <p class="degrees">°C</p>
+            <div class="text">
+                <p class="temp">{{ selectedDay.day.avgtemp_c | number:'1.0-0'}}</p>
+                <p class="degrees">°C</p>
+            </div>
+            
         </div>
         <div>
             <p class="conditions">{{ selectedDay.day.condition.text }}</p>

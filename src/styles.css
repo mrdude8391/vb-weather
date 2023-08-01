@@ -11,9 +11,14 @@
 
 body{   
     background: #ffffff;
-    max-width: 1040px;
-    padding: 0 5vw;
+    
 }
+
+.content{
+  max-width: 840px;
+  margin: auto;
+}
+
 
 
 

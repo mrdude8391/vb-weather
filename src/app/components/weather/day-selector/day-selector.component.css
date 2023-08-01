@@ -5,7 +5,9 @@
     font-size: 16px;
 }
 
-
+.day-selector img{
+    width: 50px;
+}
 
 .day-selector .activate{
     background-color: #f0f0f0;
